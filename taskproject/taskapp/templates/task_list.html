@@ -1,0 +1,102 @@
+<style>
+    .body{
+        margin: 0;
+    }
+    .first{
+        position: relative;
+    }
+    .first img {
+           width: 100vw;
+           height: 100vh;
+         
+    }
+    .first::after{
+        content: "";
+        inset: 0;
+        position: absolute;
+        background-color: rgb(77, 77, 243,0.4);
+    }
+    .sub1{
+        position: absolute;
+        top: 20vh;
+        left: 20vw;
+        font-size: x-large;
+        z-index: 1;
+    }
+    .first h2{
+        margin: 0;
+        position: absolute;
+        font-size: 70px;
+        color: rgb(255, 254, 254); 
+        top: 0vh;
+        left: 38vw;
+        z-index: 1;
+    }
+    .sub1 h3{
+        width: 19vw;
+        background-color: rgba(184, 202, 217, 0.5);
+        border-radius: 10px;
+        font-size: xx-large;
+        color: rgb(250, 206, 152);
+    }
+    .sub1 a{
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+    .sub1 a:hover{
+        color: black;
+    }
+    .sub1 table{
+        border: 2px,solid,black;
+        border-radius: 10px;
+    }
+    .task-title {
+        font-weight: bolder;
+    }
+    .task-title.completed{
+        color: green;
+    }
+    .task-title.pending{
+        color: rgb(122, 4, 4);
+    }
+</style>
+
+<div class="first">
+    <img src="https://img.freepik.com/premium-photo/pencil-checking-off-todo-list-3d-rendering-with-blue-background-copy-space_671359-10.jpg" alt="">
+    <h2>Task List</h2>
+    <div class="sub1">
+
+<h3>Welcome,{{request.user.username}}!</h3>
+<a href="/create/">Add New Task</a>
+<table border="1">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Completed</th>
+        <th>Action</th>
+        <th>Action</th>
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{task.title}}</td>
+        <td>{{task.description}}</td>
+        
+        <td class="task-title {% if task.completed %}completed{% else %}pending{% endif %}">
+            {% if task.completed %}
+             completed
+             {% else %}
+              pending
+              {% endif %}
+        </td>
+        <td><a href="/update/{{task.id}}/">Edit</a></td>
+        <td><a href="/delete/{{task.id}}/">Delete</a></td>
+         
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/logout/">Logout</a>
+<br><br>
+ <a href="/delete_account/">Delete Account</a>
+ </div>
+ </div>

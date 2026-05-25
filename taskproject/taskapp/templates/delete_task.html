@@ -1,0 +1,35 @@
+<style>
+    body{
+        background-color: beige;
+    }
+    h2{
+        text-align: center;
+    }
+    
+    .dt{
+        margin-top: 40px;
+        font-size: x-large;
+        text-align: center;
+    }
+     .dt button{
+         border: 2px,black,solid;
+       border-radius: 15px;
+       width: 80px;
+       height: 30px;
+       background-color: white;
+       color: black;
+     }
+
+</style>
+
+
+
+<h2>Delete Task</h2>
+<div class="dt">
+<p>Are you sure you want to delete"{{task.title}}"?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Yes,Delete</button>
+</form>
+<a href="/">Cancel</a>
+</div>

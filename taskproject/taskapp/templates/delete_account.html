@@ -1,0 +1,38 @@
+<style>
+    body{
+        background-color: beige;
+    }
+    h2{
+        text-align: center;
+    }
+    .da {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-top: 50px;
+        font-size: x-large;
+    }
+    .da input{
+        border: 2px,black,solid;
+       border-radius: 15px;
+       width: 60px;
+       height: 30px;
+       background-color: white;
+       color: black;
+    }
+    .Cancel-link{
+        color: rgb(119, 121, 3);
+    }
+     .Cancel-link:hover{
+             color: rgb(14, 14, 13);
+    }
+</style>
+<h2>Delete Account</h2>
+<div class="da">
+<p>Are you sure you want to delete account</p>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit"> Delete My Account</input>
+</form>
+<a href="/" class="Cancel-link" style="text-decoration: none;">Cancel</a>
+</div>

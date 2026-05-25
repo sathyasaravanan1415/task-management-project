@@ -1,0 +1,56 @@
+<style>
+    body{
+        margin: 0;
+    }
+    .first img{
+        width: 100vw;
+        height: 100vh;
+        position: relative;
+    }
+    .first::after{
+        content: "";
+        inset: 0;
+        #height: 100vh;                                                             
+        background-color: rgba(200, 233, 233, 0.7);
+        position: absolute;
+    }
+    .sub1{
+        font-size: x-large;
+        position: absolute;
+        top: 0vh;
+        left: 5vw;
+        z-index: 1;
+    }
+    .sub1 button{
+     border: 2px,black,solid;
+       border-radius: 15px;
+       width: 80px;
+       height: 30px;
+       background-color: white;
+       color: black;
+  }
+  .sub1 a{
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+    .sub1 a:hover{
+        color: black;
+    }
+</style>
+
+
+<div class="first">
+    <img src="https://png.pngtree.com/thumb_back/fh260/background/20240209/pngtree-task-management-business-planning-app-illustration-vector-image_15623958.jpg" alt="">
+    <div class="sub1">
+<h2>Signup Page</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Signup</button>
+</form>
+<a href="/login/">Already have account? Login</a>
+</div>
+</div>
+
+
+

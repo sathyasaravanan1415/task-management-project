@@ -1,0 +1,30 @@
+<style>
+   
+    h2{
+        text-align: center;
+        padding: 10px;
+    }
+    .c1{
+        background-color: beige;
+        width: 100vw;
+        height: 100vh;
+        
+    }
+   .c1 button{
+       border: 2px,black,solid;
+       border-radius: 15px;
+       width: 60px;
+       height: 30px;
+       background-color: white;
+       color: black;
+   }
+    
+</style>
+<div class="c1">
+<h2>Create Task</h2> 
+<form method="POST">
+    {%csrf_token%}
+    {{form.as_p}}
+    <button type="submit">Save</button>
+</form>
+</div>
